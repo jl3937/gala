@@ -233,6 +233,9 @@ void hernquist_gradient(double t, double *pars, double *q, int n_dim, double *gr
             - m (mass scale)
             - c (length scale)
     */
+    if (t > pars[4] || t < pars[3]) {
+        return;
+    }
     double R, fac;
     R = sqrt(q[0]*q[0] + q[1]*q[1] + q[2]*q[2]);
     fac = pars[0] * pars[1] / ((R + pars[2]) * (R + pars[2]) * R);

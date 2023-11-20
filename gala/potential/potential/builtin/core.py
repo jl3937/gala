@@ -215,6 +215,8 @@ class HernquistPotential(CPotentialBase):
 
     m = PotentialParameter("m", physical_type="mass")
     c = PotentialParameter("c", physical_type="length")
+    t1 = PotentialParameter("t1", physical_type="time")
+    t2 = PotentialParameter("t2", physical_type="time")
 
     Wrapper = HernquistWrapper
 
