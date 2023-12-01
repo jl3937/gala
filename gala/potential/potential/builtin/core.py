@@ -246,6 +246,8 @@ class PlummerPotential(CPotentialBase):
 
     m = PotentialParameter("m", physical_type="mass")
     b = PotentialParameter("b", physical_type="length")
+    t1 = PotentialParameter("t1", physical_type="time", default=0 * u.s)
+    t2 = PotentialParameter("t2", physical_type="time", default=0 * u.s)
 
     Wrapper = PlummerWrapper
 

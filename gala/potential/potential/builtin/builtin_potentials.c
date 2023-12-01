@@ -321,6 +321,12 @@ void plummer_gradient(double t, double *pars, double *q, int n_dim, double *grad
             - m (mass scale)
             - b (length scale)
     */
+    if (pars[3] != 0 || pars[4] != 0) {
+        if (t > pars[4] || t < pars[3]) {
+            return;
+        }
+    }
+
     double R2b, fac;
     R2b = q[0]*q[0] + q[1]*q[1] + q[2]*q[2] + pars[2]*pars[2];
     fac = pars[0] * pars[1] / sqrt(R2b) / R2b;
