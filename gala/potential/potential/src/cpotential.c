@@ -217,6 +217,15 @@ void c_nbody_acceleration(CPotential **pots, double t, double *qp,
         for (i=0; i < body_pot->n_components; i++)
             (body_pot->q0)[i] = &qp[j * ps_ndim];
 
+        if (j != 0) {
+            double* pars=(body_pot->parameters)[0];
+            if (pars[3] != 0 || pars[4] != 0) {
+                if (t > pars[4] || t < pars[3]) {
+                    continue;
+                }
+            }
+        }
+
         for (i=0; i < norbits; i++) {
             if (i != j) {
                 c_gradient(body_pot, t, &qp[i * ps_ndim], &f2[0]);
