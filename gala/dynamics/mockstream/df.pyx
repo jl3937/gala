@@ -337,7 +337,7 @@ cdef class FardalStreamDF(BaseStreamDF):
         To control random number generation.
     """
     def __init__(
-        self, gala_modified=None, lead=True, trail=True, random_state=None
+        self, gala_modified=False, lead=True, trail=True, random_state=None
     ):
         super().__init__(lead=lead, trail=trail, random_state=random_state)
 
@@ -397,15 +397,13 @@ cdef class FardalStreamDF(BaseStreamDF):
         k_disp[0] = 0.5 if self._gala_modified else 0.4
 
         k_mean[2] = 0. # z
-        # Change this from 0.5 to 0.3 to match GD1 width for 3Gyr
-        k_disp[2] = 0.3
+        k_disp[2] = 0.5
 
         k_mean[4] = 0.3 # vt
         k_disp[4] = 0.5 if self._gala_modified else kvt_fardal
 
         k_mean[5] = 0. # vz
-        # Change this from 0.5 to 0.3 to match GD1 width for 3Gyr
-        k_disp[5] = 0.3
+        k_disp[5] = 0.5
 
         j = 0
         for i in range(ntimes):
